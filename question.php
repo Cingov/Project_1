@@ -13,13 +13,16 @@ If ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$skill = test_input($_POST["qSkill"]);
 }
 //check at least 3 char
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	$error = "Email needs @";
+if (!preg_match(strlen($name) > 3) {
+	$error = "Name needs to be longer than 3 char";
 	echo($error)
 } 
 //check less than 500 char
-if (preg_match(strlen($pass) < 8) {
-	$error = "Password must exceed 8 characters";
+if (preg_match(strlen($body) > 500) {
+	$error = "Need more info in body";
 	echo($error)
 }
 //display skills in array
+$skill = $_POST["qskill"];
+$skill = explode (',' , $skill);
+    
