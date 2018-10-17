@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<?php 
+
+$name = $body = $skill = "";
+$error = "";
+
+//Check for empty fields
+If ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if (empty($name) || empty($body) || empty($skill) {
+	echo("Field is empty")
+} 	else {
+	$name = test_input($_POST["qName"]);
+	$body = tes_input($_POST["qBody"]);
+	$skill = test_input($_POST["qSkill"]);
+}
+//check at least 3 char
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	$error = "Email needs @";
+	echo($error)
+} 
+//check less than 500 char
+if (preg_match(strlen($pass) < 8) {
+	$error = "Password must exceed 8 characters";
+	echo($error)
+}
+//display skills in array
+echo ("")
+?>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>IS_218 Project #1</title>
+</head>
+
+<body>
+<form action="question.php" method="post">
+	Question Name (at least 3 characters): <br>
+	<input type="text" name="qName"><br>
+	Question Body (less than 500 characters): <br>
+	<input type="text" name="qBody"><br>
+	Question Skills (separate skills by comma): <br>
+	<input type="text" name-"qSkill">
+
+</form>
+</body>

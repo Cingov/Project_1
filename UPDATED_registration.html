@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+
+<?php 
+
+$first =$last = $birth = $email = $pass = "";
+$error = "";
+
+//Check for empty fields
+If ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if (empty($first)
+	echo("Field is empty") 
+}	else {
+	$first = test_input($_POST["first"]);
+}	
+if (empty($last) 
+	echo("Field is empty") 
+}	else {
+	$last = test_input($_POST["last"]);
+}	
+if (empty($birth)
+	echo("Field is empty") 
+}	else {
+	$birth = test_input($_POST["birth"]);
+}	
+if (empty($email)
+	echo("Field is empty") 
+}	else {
+	$email = test_input($_POST["email"]);
+
+//check for @ in email
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$error = "Invalid email";
+		echo($error)
+	}
+} 
+if (empty($pass) 
+	echo("Field is empty") 
+}	else {
+	$pass = test_input($_POST["password"]);
+	
+//check if password less than 8 char
+	if (preg_match(strlen($pass) < 8) {
+		$error = "Email needs @";
+		echo($error)
+	}
+}
+?>
+
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>IS_218 Project #1</title>
+</head>
+
+<body>
+<form action="registration.php" method="post">
+	First Name: <br>
+	<input type="text" name="firstName"><br>
+	<span class="error">* <?php echo $error;?></span>
+	Last Name: <br>
+	<input type="text" name="lastName"><br>
+	Birthday: <br>
+	<input type="text" name="birthday"><br>
+	Email: <br>
+	<input type="text" name="email"><br>
+	Password (at least 8 characters): <br>
+	<input type="password" name="password"><br>
+
+	<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
